@@ -8,7 +8,7 @@ import os
 import torch
 
 VARIANT = "2b-v2"
-MACHINE_TYPE = "cpu"
+MACHINE_TYPE = "cuda"
 weights_dir = './models/gemma-2-2b-it'
 weights_file = os.path.join(weights_dir, "model.ckpt")
 
