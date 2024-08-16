@@ -652,7 +652,7 @@ class GemmaForCausalLM(nn.Module):
 
                 return results
 
-            print(decoded_token, end='', flush=True)
+            # print(decoded_token, end='', flush=True)
 
             input_token_ids_tensor = output_token_ids
             input_positions_tensor = output_index.unsqueeze(dim=-1)
