@@ -9,7 +9,8 @@ import os
 import torch
 
 # Load the model
-VARIANT = "2b-v2"
+# VARIANT = "2b-v2"
+VARIANT = "<2b or 7b or 9b or 27b>"
 MACHINE_TYPE = "cpu"
 weights_dir = './models/gemma-2-2b-it'
 weights_file = os.path.join(weights_dir, "model.ckpt")

@@ -645,12 +645,14 @@ class GemmaForCausalLM(nn.Module):
 
             # 实时输出生成的 token
             decoded_token = self.tokenizer.decode([output_token_ids.item()])
+            yield decoded_token
+
             results += decoded_token
             if decoded_token == "<end_of_turn>":
 
-                return results.replace("<end_of_turn>", "").replace("<end_of_turn>", "")
+                return results
 
-            print(decoded_token, end='', flush=True)
+            # print(decoded_token, end='', flush=True)
 
             input_token_ids_tensor = output_token_ids
             input_positions_tensor = output_index.unsqueeze(dim=-1)
