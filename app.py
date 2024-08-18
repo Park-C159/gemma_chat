@@ -1,11 +1,11 @@
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template, jsonify, send_from_directory
 from flask_cors import CORS  # 引入 Flask-CORS
 from flask_socketio import SocketIO, send
 
 from chat import base, USER_CHAT_TEMPLATE
 from utils.file import *
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static', static_url_path='')
 
 CORS(app)
 app.config['SECRET_KEY'] = 'your_secret_key'
@@ -18,9 +18,10 @@ stop_generation = False
 tables_created = False  # 用于追踪表是否已经创建
 
 
+
 @app.route('/')
 def index():
-    return "hello world"
+    return send_from_directory(app.static_folder, 'index.html')
 
 
 @app.route('/stop_chat', methods=['GET'])
