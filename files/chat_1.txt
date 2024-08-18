@@ -1,0 +1,2 @@
+<start_of_turn>user
+请用中文回答后面所有的问题。<end_of_turn><eos>

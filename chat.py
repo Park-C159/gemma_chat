@@ -26,12 +26,24 @@ def _set_default_tensor_type(dtype: torch.dtype):
 USER_CHAT_TEMPLATE = "<start_of_turn>user\n{prompt}<end_of_turn><eos>\n"
 MODEL_CHAT_TEMPLATE = "<start_of_turn>model\n{prompt}<end_of_turn><eos>\n"
 
+def get_device():
+    if torch.cuda.is_available():
+        print("GPU is available. Using GPU.")
+        return torch.device("cuda")
+    elif torch.backends.mps.is_available():
+        # 如果是在 Apple 的 M1 或 M2 芯片上，可以使用 MPS（Metal Performance Shaders）
+        print("MPS is available. Using MPS.")
+        return torch.device("mps")
+    else:
+        print("No GPU available. Using CPU.")
+        return torch.device("cpu")
+
 
 def base():
     model_config = get_model_config(VARIANT)
     model_config.tokenizer = os.path.join(weights_dir, "tokenizer.model")
 
-    device = torch.device(MACHINE_TYPE)
+    device = get_device()
     with _set_default_tensor_type(model_config.get_dtype()):
         model = GemmaForCausalLM(model_config)
         model.load_weights(weights_file)
