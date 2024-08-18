@@ -1,0 +1,14 @@
+<start_of_turn>user
+请用中文回答后面所有的问题。<end_of_turn><eos>
+<start_of_turn>user
+太伤心了<end_of_turn><eos>
+<start_of_turn>model
+我理解你现在感觉伤心难过。 😔  
+
+ 告诉我发生了什么事，或许我可以帮你找到一些缓解情绪的方法。或者，如果你想要倾诉，我可以倾听。 🤗 
+
+
+不要害怕，我会一直在这里支持你。 💖
+
+ 你想聊聊吗？ 👌 
+<end_of_turn><eos>
